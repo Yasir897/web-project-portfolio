@@ -174,7 +174,7 @@
       "description": "This database-driven portfolio website built with Django. All content is managed through the Django admin panel. Features include skills, education, projects, and a working contact form.",
       "technologies": "Django, Python, SQLite, HTML, CSS, JavaScript",
       "github_url": "https://github.com/Yasir897/web-project-portfolio",
-      "live_url": "",
+      "live_url": "https://yasir897.pythonanywhere.com",
       "image": "",
       "is_featured": true,
       "order": 5
