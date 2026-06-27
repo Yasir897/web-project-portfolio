@@ -1,0 +1,355 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% if profile %}{{ profile.name }}{% else %}Yasir Naeem{% endif %} | Portfolio</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  {% if messages %}
+  <div class="alerts" id="alerts">
+    {% for msg in messages %}
+    <div class="alert alert-{{ msg.tags }}">
+      <i class="fas fa-check-circle"></i>
+      {{ msg }}
+      <button onclick="this.parentElement.remove()"><i class="fas fa-times"></i></button>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- NAVBAR -->
+  <header id="navbar">
+    <nav class="nav-wrap">
+      <a href="#home" class="brand">
+        <span class="brand-dot"></span>
+        {% if profile %}{{ profile.name.split.0 }}{% else %}Yasir{% endif %}
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="burger" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- HOME / HERO -->
+  <section id="home" class="hero">
+    <div class="hero-wrap">
+      <div class="hero-left fade-up">
+        <p class="hero-tag">Hello, I'm</p>
+        <h1 class="hero-name">{% if profile %}{{ profile.name }}{% else %}Yasir Naeem{% endif %}</h1>
+        <h2 class="hero-role">{% if profile %}{{ profile.title }}{% else %}Full Stack Developer{% endif %}</h2>
+        {% if profile and profile.tagline %}
+        <p class="hero-tagline">{{ profile.tagline }}</p>
+        {% endif %}
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary"><i class="fas fa-eye"></i> View Work</a>
+          <a href="{% static 'files/Yasir_Naeem_Resume.docx' %}" download class="btn btn-ghost"><i class="fas fa-download"></i> Download CV</a>
+        </div>
+        <div class="hero-links">
+          {% if profile and profile.github_url %}
+          <a href="{{ profile.github_url }}" target="_blank"><i class="fab fa-github"></i></a>
+          {% else %}
+          <a href="https://github.com/Yasir897" target="_blank"><i class="fab fa-github"></i></a>
+          {% endif %}
+          {% if profile and profile.linkedin_url %}
+          <a href="{{ profile.linkedin_url }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          {% else %}
+          <a href="https://www.linkedin.com/in/yasir-naeem-a5176a321/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          {% endif %}
+          {% if profile and profile.email %}
+          <a href="mailto:{{ profile.email }}"><i class="fas fa-envelope"></i></a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="hero-right fade-up">
+        <div class="hero-photo">
+          {% if profile and profile.profile_picture %}
+          <img src="{{ profile.profile_picture.url }}" alt="{% if profile %}{{ profile.name }}{% else %}Yasir Naeem{% endif %}" />
+          {% else %}
+          <img src="{% static 'images/profile.png' %}" alt="Yasir Naeem" />
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="sec-header fade-up">
+        <span class="sec-num">01</span>
+        <h2>About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-photo fade-up">
+          <div class="photo-box">
+            {% if profile and profile.profile_picture %}
+            <img src="{{ profile.profile_picture.url }}" alt="{{ profile.name }}" />
+            {% else %}
+            <img src="{% static 'images/profile.png' %}" alt="Yasir Naeem" />
+            {% endif %}
+          </div>
+          <div class="quick-stats">
+            <div class="qs-card"><strong>3+</strong><span>Years Learning</span></div>
+            <div class="qs-card"><strong>10+</strong><span>Projects</span></div>
+            <div class="qs-card"><strong>15+</strong><span>Technologies</span></div>
+          </div>
+        </div>
+        <div class="about-text fade-up">
+          <p class="about-role">{% if profile %}{{ profile.title }}{% else %}Full Stack Developer{% endif %}</p>
+          <div class="about-bio">
+            {% if profile %}
+              {{ profile.about|linebreaks }}
+            {% else %}
+              <p>BS Computer Science student at UMT Lahore. Full Stack Developer with expertise in Python, Django, React, and modern web technologies. I enjoy building clean, efficient applications and solving complex problems.</p>
+            {% endif %}
+          </div>
+          <ul class="about-info">
+            {% if profile and profile.location %}
+            <li><i class="fas fa-map-marker-alt"></i> {{ profile.location }}</li>
+            {% endif %}
+            {% if profile and profile.email %}
+            <li><i class="fas fa-envelope"></i> {{ profile.email }}</li>
+            {% endif %}
+            {% if profile and profile.phone %}
+            <li><i class="fas fa-phone"></i> {{ profile.phone }}</li>
+            {% endif %}
+          </ul>
+          <div class="about-btns">
+            {% if profile and profile.github_url %}
+            <a href="{{ profile.github_url }}" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> GitHub</a>
+            {% else %}
+            <a href="https://github.com/Yasir897" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> GitHub</a>
+            {% endif %}
+            <a href="{% static 'files/Yasir_Naeem_Resume.docx' %}" download class="btn btn-ghost"><i class="fas fa-file-alt"></i> Resume</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section skills">
+    <div class="container">
+      <div class="sec-header fade-up">
+        <span class="sec-num">02</span>
+        <h2>My Skills</h2>
+        <p>Technologies I work with</p>
+      </div>
+      <div class="skills-grid">
+        {% for cat in skill_categories %}
+        <div class="skill-box fade-up">
+          <h3 class="skill-cat">{{ cat.name }}</h3>
+          {% for skill in cat.skills.all %}
+          <div class="skill-row">
+            <div class="skill-info">
+              <span>{{ skill.name }}</span>
+              <span>{{ skill.proficiency }}%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" data-w="{{ skill.proficiency }}"></div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% empty %}
+        <div class="skill-box fade-up">
+          <h3 class="skill-cat">Languages</h3>
+          <div class="skill-row"><div class="skill-info"><span>Python</span><span>85%</span></div><div class="progress-track"><div class="progress-fill" data-w="85"></div></div></div>
+          <div class="skill-row"><div class="skill-info"><span>JavaScript</span><span>80%</span></div><div class="progress-track"><div class="progress-fill" data-w="80"></div></div></div>
+          <div class="skill-row"><div class="skill-info"><span>C++</span><span>80%</span></div><div class="progress-track"><div class="progress-fill" data-w="80"></div></div></div>
+        </div>
+        <div class="skill-box fade-up">
+          <h3 class="skill-cat">Web & Frameworks</h3>
+          <div class="skill-row"><div class="skill-info"><span>Django</span><span>82%</span></div><div class="progress-track"><div class="progress-fill" data-w="82"></div></div></div>
+          <div class="skill-row"><div class="skill-info"><span>React</span><span>80%</span></div><div class="progress-track"><div class="progress-fill" data-w="80"></div></div></div>
+          <div class="skill-row"><div class="skill-info"><span>HTML / CSS</span><span>90%</span></div><div class="progress-track"><div class="progress-fill" data-w="90"></div></div></div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section education">
+    <div class="container">
+      <div class="sec-header fade-up">
+        <span class="sec-num">03</span>
+        <h2>Education</h2>
+      </div>
+      <div class="timeline">
+        {% for edu in education %}
+        <div class="tl-item fade-up">
+          <div class="tl-dot"><i class="fas fa-graduation-cap"></i></div>
+          <div class="tl-body">
+            <span class="tl-year">{{ edu.duration }}</span>
+            <h3>{{ edu.degree }}</h3>
+            <p class="tl-inst"><i class="fas fa-university"></i> {{ edu.institution }}</p>
+            {% if edu.description %}<p class="tl-desc">{{ edu.description }}</p>{% endif %}
+          </div>
+        </div>
+        {% empty %}
+        <div class="tl-item fade-up">
+          <div class="tl-dot"><i class="fas fa-graduation-cap"></i></div>
+          <div class="tl-body">
+            <span class="tl-year">2022 — Present</span>
+            <h3>BS Computer Science</h3>
+            <p class="tl-inst"><i class="fas fa-university"></i> University of Management and Technology (UMT), Lahore</p>
+            <p class="tl-desc">6 Semesters Completed. Coursework: Data Structures, OOP, Database Systems, Web Technologies, AI, Operating Systems.</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section projects">
+    <div class="container">
+      <div class="sec-header fade-up">
+        <span class="sec-num">04</span>
+        <h2>My Projects</h2>
+        <p>Things I've built</p>
+      </div>
+      <div class="proj-grid">
+        {% for project in projects %}
+        <div class="proj-card fade-up">
+          <div class="proj-thumb">
+            {% if project.image %}
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" />
+            {% else %}
+            <div class="proj-placeholder">
+              <i class="fas fa-code"></i>
+            </div>
+            {% endif %}
+            {% if project.is_featured %}<span class="feat-badge">Featured</span>{% endif %}
+          </div>
+          <div class="proj-body">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <div class="proj-tags">
+              {% for tech in project.tech_list %}
+              <span>{{ tech }}</span>
+              {% endfor %}
+            </div>
+            <div class="proj-links">
+              {% if project.github_url %}
+              <a href="{{ project.github_url }}" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+              {% endif %}
+              {% if project.live_url %}
+              <a href="{{ project.live_url }}" target="_blank" class="live"><i class="fas fa-external-link-alt"></i> Live</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% empty %}
+        <p style="text-align:center;color:#94a3b8;grid-column:1/-1">No projects yet. Add them via admin panel.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="sec-header fade-up">
+        <span class="sec-num">05</span>
+        <h2>Get In Touch</h2>
+        <p>Let's build something great together</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info fade-up">
+          <h3>Contact Details</h3>
+          <div class="ci-list">
+            {% if profile and profile.email %}
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+              <div><label>Email</label><a href="mailto:{{ profile.email }}">{{ profile.email }}</a></div>
+            </div>
+            {% else %}
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+              <div><label>Email</label><a href="mailto:yasir007naeem@gmail.com">yasir007naeem@gmail.com</a></div>
+            </div>
+            {% endif %}
+            {% if profile and profile.phone %}
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fas fa-phone"></i></div>
+              <div><label>Phone</label><p>{{ profile.phone }}</p></div>
+            </div>
+            {% endif %}
+            {% if profile and profile.location %}
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div><label>Location</label><p>{{ profile.location }}</p></div>
+            </div>
+            {% endif %}
+          </div>
+          <div class="ci-socials">
+            {% if profile and profile.github_url %}
+            <a href="{{ profile.github_url }}" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            {% else %}
+            <a href="https://github.com/Yasir897" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            {% endif %}
+            {% if profile and profile.linkedin_url %}
+            <a href="{{ profile.linkedin_url }}" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            {% endif %}
+          </div>
+        </div>
+        <div class="contact-form-wrap fade-up">
+          <form method="POST" action="{% url 'home' %}#contact">
+            {% csrf_token %}
+            <div class="field">
+              <label>Your Name</label>
+              <input type="text" name="name" placeholder="John Doe" required />
+            </div>
+            <div class="field">
+              <label>Your Email</label>
+              <input type="email" name="email" placeholder="john@example.com" required />
+            </div>
+            <div class="field">
+              <label>Message</label>
+              <textarea name="message" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-full"><i class="fas fa-paper-plane"></i> Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-wrap">
+      <p class="ft-name">{% if profile %}{{ profile.name }}{% else %}Yasir Naeem{% endif %}</p>
+      <p class="ft-info">
+        {% if profile and profile.email %}{{ profile.email }}{% else %}yasir007naeem@gmail.com{% endif %}
+        {% if profile and profile.phone %} &bull; {{ profile.phone }}{% endif %}
+      </p>
+      <div class="ft-socials">
+        {% if profile and profile.github_url %}<a href="{{ profile.github_url }}" target="_blank"><i class="fab fa-github"></i></a>{% else %}<a href="https://github.com/Yasir897" target="_blank"><i class="fab fa-github"></i></a>{% endif %}
+        {% if profile and profile.linkedin_url %}<a href="{{ profile.linkedin_url }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>{% endif %}
+        {% if profile and profile.email %}<a href="mailto:{{ profile.email }}"><i class="fas fa-envelope"></i></a>{% endif %}
+      </div>
+      <p class="ft-copy">&copy; 2025 {% if profile %}{{ profile.name }}{% else %}Yasir Naeem{% endif %}. All rights reserved.</p>
+      <a href="#home" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

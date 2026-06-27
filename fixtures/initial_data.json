@@ -1,0 +1,183 @@
+[
+  {
+    "model": "portfolio.profile",
+    "pk": 1,
+    "fields": {
+      "name": "Yasir Naeem",
+      "title": "Full Stack Developer",
+      "tagline": "Turning ideas into real web apps with Python, Django & React.",
+      "about": "BS Computer Science student at the University of Management and Technology (UMT), Lahore, with 6 semesters completed. A Full Stack Developer comfortable across both frontend and backend, with a solid foundation in C++ and a strong command of Python.\n\nExperienced in building complete web applications using React, Next.js, and Django, alongside hands-on work in automation and databases. I keep sharpening my programming and problem-solving skills by building real-world university and personal projects.",
+      "email": "yasir007naeem@gmail.com",
+      "phone": "+92 314 4107039",
+      "location": "Lahore, Pakistan",
+      "github_url": "https://github.com/Yasir897",
+      "linkedin_url": "https://www.linkedin.com/in/yasir-naeem-a5176a321/",
+      "profile_picture": ""
+    }
+  },
+  {
+    "model": "portfolio.skillcategory",
+    "pk": 1,
+    "fields": { "name": "Languages", "order": 0 }
+  },
+  {
+    "model": "portfolio.skillcategory",
+    "pk": 2,
+    "fields": { "name": "Web & Frameworks", "order": 1 }
+  },
+  {
+    "model": "portfolio.skillcategory",
+    "pk": 3,
+    "fields": { "name": "Tools & Databases", "order": 2 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 1,
+    "fields": { "category": 1, "name": "Python", "proficiency": 85, "order": 0 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 2,
+    "fields": { "category": 1, "name": "JavaScript", "proficiency": 80, "order": 1 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 3,
+    "fields": { "category": 1, "name": "C++", "proficiency": 80, "order": 2 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 4,
+    "fields": { "category": 1, "name": "TypeScript", "proficiency": 75, "order": 3 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 5,
+    "fields": { "category": 2, "name": "Django", "proficiency": 82, "order": 0 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 6,
+    "fields": { "category": 2, "name": "React", "proficiency": 80, "order": 1 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 7,
+    "fields": { "category": 2, "name": "Next.js", "proficiency": 75, "order": 2 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 8,
+    "fields": { "category": 2, "name": "HTML & CSS", "proficiency": 90, "order": 3 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 9,
+    "fields": { "category": 3, "name": "Git & GitHub", "proficiency": 85, "order": 0 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 10,
+    "fields": { "category": 3, "name": "SQLite / MySQL", "proficiency": 78, "order": 1 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 11,
+    "fields": { "category": 3, "name": "Selenium / Automation", "proficiency": 70, "order": 2 }
+  },
+  {
+    "model": "portfolio.education",
+    "pk": 1,
+    "fields": {
+      "degree": "BS Computer Science (BSCS)",
+      "institution": "University of Management and Technology (UMT), Lahore, Pakistan",
+      "duration": "2022 — Present (Expected 2026)",
+      "description": "Currently pursuing a Bachelor of Computer Science at UMT. Relevant coursework: Data Structures & Algorithms, Object-Oriented Programming, Database Systems, Web Technologies, Artificial Intelligence, and Operating Systems.",
+      "order": 0
+    }
+  },
+  {
+    "model": "portfolio.project",
+    "pk": 1,
+    "fields": {
+      "title": "AI Route Optimization",
+      "description": "Finds the shortest routes on a real city map using AI search algorithms (BFS, DFS, UCS, A*) on live OpenStreetMap data, with an interactive Streamlit dashboard that compares each algorithm.",
+      "technologies": "Python, Streamlit, OSMnx, NetworkX",
+      "github_url": "https://github.com/Yasir897/ai-route-optimization",
+      "live_url": "",
+      "image": "",
+      "is_featured": true,
+      "order": 0
+    }
+  },
+  {
+    "model": "portfolio.project",
+    "pk": 2,
+    "fields": {
+      "title": "Hospital Management System",
+      "description": "A comprehensive console-based Hospital Management System in C++ using OOP and file handling. Manages doctors, patients, pharmacy, blood bank, ambulance, equipment, lab reports and receipts.",
+      "technologies": "C++, OOP, File Handling",
+      "github_url": "https://github.com/Yasir897/hospital-management-system-cpp",
+      "live_url": "",
+      "image": "",
+      "is_featured": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "portfolio.project",
+    "pk": 3,
+    "fields": {
+      "title": "Online Clothing Store",
+      "description": "A full e-commerce web application for an online clothing brand. Features a product storefront, cart and checkout, user accounts, and a secure admin panel to manage products.",
+      "technologies": "PHP, MySQL, HTML, CSS",
+      "github_url": "https://github.com/Yasir897/online-clothing-store-php",
+      "live_url": "",
+      "image": "",
+      "is_featured": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "portfolio.project",
+    "pk": 4,
+    "fields": {
+      "title": "WhatsApp Bulk Sender",
+      "description": "An automation tool that sends bulk WhatsApp messages to a list of numbers read from a data file, using Selenium to drive WhatsApp Web.",
+      "technologies": "Python, Selenium, Pandas",
+      "github_url": "https://github.com/Yasir897/whatsapp-sender",
+      "live_url": "",
+      "image": "",
+      "is_featured": false,
+      "order": 3
+    }
+  },
+  {
+    "model": "portfolio.project",
+    "pk": 5,
+    "fields": {
+      "title": "Hotel Management System (DSA)",
+      "description": "A Hotel Management System in C++ demonstrating core data structures: Linked Lists for floors and rooms, a Queue for booking requests, and a Stack to cancel the last booking.",
+      "technologies": "C++, Data Structures, Linked List, Stack, Queue",
+      "github_url": "https://github.com/Yasir897/hotel-management-dsa-cpp",
+      "live_url": "",
+      "image": "",
+      "is_featured": false,
+      "order": 4
+    }
+  },
+  {
+    "model": "portfolio.project",
+    "pk": 6,
+    "fields": {
+      "title": "Dynamic Portfolio Website",
+      "description": "This database-driven portfolio website built with Django. All content is managed through the Django admin panel. Features include skills, education, projects, and a working contact form.",
+      "technologies": "Django, Python, SQLite, HTML, CSS, JavaScript",
+      "github_url": "https://github.com/Yasir897/web-project-portfolio",
+      "live_url": "",
+      "image": "",
+      "is_featured": true,
+      "order": 5
+    }
+  }
+]
