@@ -37,6 +37,7 @@
         <li><a href="#education">Education</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="/admin/" class="admin-link"><i class="fas fa-lock"></i> Admin</a></li>
       </ul>
       <button class="burger" id="burger">
         <span></span><span></span><span></span>
@@ -346,6 +347,7 @@
         {% if profile and profile.email %}<a href="mailto:{{ profile.email }}"><i class="fas fa-envelope"></i></a>{% endif %}
       </div>
       <p class="ft-copy">&copy; 2025 {% if profile %}{{ profile.name }}{% else %}Yasir Naeem{% endif %}. All rights reserved.</p>
+      <a href="/admin/" class="admin-footer-link"><i class="fas fa-cog"></i> Admin Panel</a>
       <a href="#home" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
     </div>
   </footer>
